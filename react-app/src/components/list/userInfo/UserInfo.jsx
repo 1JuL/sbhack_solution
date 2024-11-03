@@ -14,15 +14,12 @@ const UserInfo = () => {
         />
         <div>
           <h2>{currentUser.username}</h2>
-          <button className="logout" onClick={() => auth.signOut()}>
-            Logout
-          </button>
+          <div className="buttons">
+            <button className="logout" onClick={() => auth.signOut()}>
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="icons">
-        <img src="./more.png" alt="more" />
-        <img src="./video.png" alt="video" />
-        <img src="./edit.png" alt="edit" />
       </div>
     </div>
   );

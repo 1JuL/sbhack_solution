@@ -53,7 +53,7 @@ const Chat = () => {
     }
   };
 
-  console.log("img", img);
+  //console.log("img", img);
 
   const handleSend = async () => {
     if (text === "") return;
@@ -62,7 +62,7 @@ const Chat = () => {
     try {
       if (img.file) {
         imgUrl = await upload(img.file);
-        console.log("imgUrl", imgUrl);
+        //console.log("imgUrl", imgUrl);
       }
       await updateDoc(doc(db, "chats", chatId), {
         messages: arrayUnion({
@@ -105,6 +105,14 @@ const Chat = () => {
     setText("");
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent default action (like form submission)
+      handleSend();
+      setText("");
+    }
+  };
+
   // console.log("chat", chat);
 
   return (
@@ -116,11 +124,6 @@ const Chat = () => {
             <span>{user?.username}</span>
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
-        </div>
-        <div className="icons">
-          <img src="./phone.png" alt="phone" />
-          <img src="video.png" alt="video" />
-          <img src="./info.png" alt="info" />
         </div>
       </div>
       <div className="center">
@@ -159,8 +162,6 @@ const Chat = () => {
             style={{ display: "none" }}
             onChange={handleImg}
           />
-          <img src="./camera.png" alt="camera" />
-          <img src="./mic.png" alt="mic" />
         </div>
         <input
           type="text"
@@ -171,6 +172,7 @@ const Chat = () => {
           }
           value={text}
           onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
           disabled={isCurrentUserBlocked || isReceiverBlocked}
         />
         <div className="emoji">
