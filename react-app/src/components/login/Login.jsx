@@ -95,6 +95,13 @@ const Login = () => {
 
   return (
     <div className="login">
+      <div>
+        <img src="/image.svg" alt="" />
+        <h1>UPVIEW</h1>
+        <h1>VENTURES</h1>
+        <h1>INSIDERS</h1>
+
+      </div>
       {!showRegister && (
         <div className="item">
           <h2>Welcome back,</h2>

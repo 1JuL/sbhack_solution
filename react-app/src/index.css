@@ -7,10 +7,8 @@
 }
 
 body {
-  background-image: url("../public/bg1-1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ 
+  background-color: #12222e;
   display: flex;
   align-items: center;
   justify-content: center;
